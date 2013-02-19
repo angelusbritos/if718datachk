@@ -1,0 +1,21 @@
+@(user: String, pForm: Form[entidades.Peca], pecas: List[entidades.Peca])
+
+@import helper._
+
+@main("Lista de Pecas") {
+
+    <h1>@user, temos @pecas.size() pecas no sistema.</h1>
+    <ul>
+        @for(peca <- pecas) {
+            <li>
+		@peca.toString()
+            </li>
+        }
+    </ul>
+
+	@helper.form(action = routes.Application.novaPeca()){
+		
+		<h2><a href="novaPeca">Adicionar nova Peca</a></h2>
+	}
+
+}

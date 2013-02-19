@@ -1,11 +1,11 @@
-@(computadores: List[Computador], computadorForm: Form[Computador])
+@(computadores: List[entidades.Computador], computadorForm: Form[entidades.Computador], user: String)
 
 @import helper._
 
 @main("Lista de Computadores") {
     
     <h1>@computadores.size() computador(es)</h1>
-    
+		@user
     <ul>
         @for(computador <- computadores) {
             <li>
