@@ -1,0 +1,22 @@
+@(user: String, pForm: Form[models.entidades.Doacao], doacoes: List[models.entidades.Doacao])
+
+@import helper._
+
+@main("Lista de Doacoes") {
+
+    <h1>@user, temos @doacoes.size() doacoes no sistema.</h1>
+    <ul>
+        @for(doacao <- doacoes) {
+            <li>
+		@doacao.toString()
+            </li>
+        }
+    </ul>
+
+	@helper.form(action = routes.Application.cadastrarDoacoes()){
+		@inputText(pForm("origem"))
+		@inputText(pForm("comentarios"))
+		<input type="submit" value="Adicionar Doacao" />
+	}
+
+}
