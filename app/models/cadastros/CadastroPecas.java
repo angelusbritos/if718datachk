@@ -14,7 +14,7 @@ public class CadastroPecas {
                 repPecas = new RepositorioPecasBDR();
         }
 
-        public void atualiar(Peca peca){
+        public void atualizar(Peca peca){
 		repPecas.save(peca);
         }
 
@@ -23,7 +23,6 @@ public class CadastroPecas {
                         repPecas.delete(id);
                 }
         }
-
 
         public Peca recuperar(long id){
                 return repPecas.findId(id);

@@ -14,7 +14,7 @@ public class CadastroDoacoes {
                 repDoacoes = new RepositorioCadastrarDoacoesBDR();
         }
 
-        public void atualiar(Doacao doacao){
+        public void atualizar(Doacao doacao){
 		repDoacoes.save(doacao);
         }
 

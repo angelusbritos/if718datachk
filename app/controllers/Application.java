@@ -62,9 +62,8 @@ public class Application extends Controller {
 
 	public static Result pecas(){
 		String user = session("connected");
-		return TODO;	
-	
-//return ok(pecas.render(user, Form.form(Peca.class),  Peca.all()));
+		Fachada f = Fachada.getInstance();
+		return ok(pecas.render(user, Form.form(Peca.class), f.pecas()));
 	}
 
 	public static Result novaPeca(){
@@ -79,6 +78,27 @@ public class Application extends Controller {
 		else{
 			Peca p = pForm.get();
 			return redirect(routes.Application.pecas());
+		}
+	}
+
+	public static Result doacoes(){
+		String user = session("connected");
+		Fachada f = Fachada.getInstance();
+		return ok(doacoes.render(user, Form.form(Doacao.class),  f.doacoes()));
+	}
+
+	public static Result cadastrarDoacoes(){
+		Form<Doacao> dForm = Form.form(Doacao.class).bindFromRequest();
+		Fachada fachada = Fachada.getInstance();
+		fachada.cadastrarDoacoes(dForm.get());
+
+		if(dForm.hasErrors()){
+			//return ok(cadastrarDoacoes.render(user, pForm));
+			return TODO;
+		}
+		else{
+			Doacao d = dForm.get();
+			return redirect(routes.Application.doacoes());
 		}
 	}
 }

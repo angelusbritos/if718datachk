@@ -10,8 +10,21 @@ create table computador (
 ;
 
 create table doacao (
-  id                        bigint,
-  origem                    varchar(255))
+  id                        bigint not null,
+  origem                    varchar(255),
+  comentarios               varchar(255),
+  qtt_placa_mae             integer,
+  qtt_placa_video           integer,
+  qtt_placa_rede            integer,
+  qtt_memoria               integer,
+  qtt_monitor               integer,
+  qtt_gabinete              integer,
+  qtt_hd                    integer,
+  qtt_drive_cd              integer,
+  qtt_teclado               integer,
+  qtt_mouse                 integer,
+  qtt_impressora            integer,
+  constraint pk_doacao primary key (id))
 ;
 
 create table funcionario (
@@ -35,6 +48,8 @@ create table solicitacao (
   status                    varchar(255))
 ;
 
+create sequence doacao_seq;
+
 
 
 
@@ -53,4 +68,6 @@ drop table if exists peca;
 drop table if exists solicitacao;
 
 SET REFERENTIAL_INTEGRITY TRUE;
+
+drop sequence if exists doacao_seq;
 

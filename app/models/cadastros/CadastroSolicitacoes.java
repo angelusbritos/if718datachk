@@ -14,7 +14,7 @@ public class CadastroSolicitacoes {
                 repSolicitacoes = new RepositorioSolicitacoesBDR();
         }
 
-        public void atualiar(Solicitacao sol){
+        public void atualizar(Solicitacao sol){
 		repSolicitacoes.save(sol);
         }
 

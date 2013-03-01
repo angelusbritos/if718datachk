@@ -14,15 +14,15 @@ public class ControladorDoacoes{
 		cadastro = new CadastroDoacoes();
 	}
 
-	public Doacao getDoacao(long id){
+	public Doacao get(long id){
 		return cadastro.recuperar(id);
 	}
 
-	public List<Doacao> doacoes(){
+	public List<Doacao> all(){
 		return cadastro.recuperar();
 	}
 
-	public void cadastrarDoacao(Doacao d){
+	public void cadastrar(Doacao d){
 		cadastro.atualizar(d);
 	}
 }
