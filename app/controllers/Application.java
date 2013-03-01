@@ -17,7 +17,7 @@ public class Application extends Controller {
 	public static Result index() {
 		String user = session("connected");
 		if(user != null)
-			return ok(index.render("Your new application is ready."));
+			return ok(index.render(user));
 		else
 			return redirect(routes.Application.login());
 	}
@@ -67,16 +67,22 @@ public class Application extends Controller {
 	}
 
 	public static Result novaPeca(){
+		String user = session("connected");
 		Form<Peca> pForm = Form.form(Peca.class).bindFromRequest();
-		Fachada fachada = Fachada.getInstance();
-		fachada.cadastrarPeca(pForm.get());
+		return ok(novaPeca.render(user, pForm));
+	}
+	
+	public static Result cadastrarPeca(){
+		String user = session("connected");
+		Form<Peca> pForm = Form.form(Peca.class).bindFromRequest();
 
 		if(pForm.hasErrors()){
-			//return ok(cadastrarPeca.render(user, pForm));
-			return TODO;
+			return ok(novaPeca.render(user, pForm));
 		}
 		else{
+			Fachada fachada = Fachada.getInstance();
 			Peca p = pForm.get();
+			fachada.cadastrarPeca(pForm.get());
 			return redirect(routes.Application.pecas());
 		}
 	}

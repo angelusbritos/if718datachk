@@ -36,11 +36,12 @@ create table funcionario (
 ;
 
 create table peca (
-  id                        bigint,
+  id                        bigint not null,
   tipo                      varchar(255),
   marca                     varchar(255),
   modelo                    varchar(255),
-  estado                    varchar(255))
+  estado                    varchar(255),
+  constraint pk_peca primary key (id))
 ;
 
 create table solicitacao (
@@ -49,6 +50,8 @@ create table solicitacao (
 ;
 
 create sequence doacao_seq;
+
+create sequence peca_seq;
 
 
 
@@ -70,4 +73,6 @@ drop table if exists solicitacao;
 SET REFERENTIAL_INTEGRITY TRUE;
 
 drop sequence if exists doacao_seq;
+
+drop sequence if exists peca_seq;
 

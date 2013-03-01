@@ -3,20 +3,21 @@
 # ~~~~
 
 # Home page
-GET     /                           	controllers.Application.index()
-GET	/login				controllers.Application.login()
-GET	/logout				controllers.Application.logout()
+GET     /                      	controllers.Application.index()
+GET	/login			controllers.Application.login()
+GET	/logout			controllers.Application.logout()
 
-GET	/funcionario			controllers.Application.funcionario()
+GET	/funcionario		controllers.Application.funcionario()
 
-GET	/pecas				controllers.Application.pecas()
-POST	/novaPeca			controllers.Application.novaPeca()
-GET	/doacoes			controllers.Application.doacoes()
-POST	/cadastrarDoacao		controllers.Application.cadastrarDoacoes()
+GET	/pecas			controllers.Application.pecas()
+GET	/novaPeca		controllers.Application.novaPeca()
+POST	/novaPeca		controllers.Application.cadastrarPeca()
+GET	/doacoes		controllers.Application.doacoes()
+POST	/cadastrarDoacao	controllers.Application.cadastrarDoacoes()
 
-GET	/computadores		    	controllers.Application.computadores()
-POST	/computadores		    	controllers.Application.newComputador()
-POST	/computadores/:id/delete    	controllers.Application.deleteComputador(id: Long)
+GET	/computadores		controllers.Application.computadores()
+POST	/computadores		controllers.Application.newComputador()
+POST	/computadores/:id/delete controllers.Application.deleteComputador(id: Long)
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)

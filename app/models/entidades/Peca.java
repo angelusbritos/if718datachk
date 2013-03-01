@@ -11,7 +11,9 @@ import play.db.ebean.Model;
 
 @Entity
 public class Peca extends Model{
-	public Long id;
+	
+	@Id
+	public long id;
 	/*
 	 * tipo
 	 * * HD:
@@ -34,23 +36,17 @@ public class Peca extends Model{
 	//public TipoPeca tipo;
 	//public MarcaPeca marca;
 	//public ModeloPeca modelo;
+	
 	@Required
 	public String tipo;
 	public String marca;
 	public String modelo;
 	public String estado;
 
-	public void create(){
-        }
-
-        public static void delete(Long id){
-        }
-
-	public String validate(){
-		return null;
-	}
-
-	public String authenticate(String email, String password){
-		return null;
+	@Override
+	public String toString(){
+		return 	"Peca["+id+"]: Tipo="+tipo+
+			", marca="+marca+", modelo="+modelo+
+			", estado="+estado+";";
 	}
 }

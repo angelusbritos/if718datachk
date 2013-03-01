@@ -1,0 +1,17 @@
+@(user: String, pForm: Form[entidades.Peca])
+
+@import helper._
+
+
+@pagina("Lista de Pecas"){
+
+    <h1>Cadastrar nova Peca.</h1>
+	@helper.form(action = routes.Application.cadastrarPeca()){
+		@inputText(pForm("tipo"))
+		@inputText(pForm("marca"))
+		@inputText(pForm("modelo"))
+		@inputText(pForm("estado"))
+		<input type="submit" value="Cadastrar">
+	}
+
+}
